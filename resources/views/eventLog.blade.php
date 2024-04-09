@@ -1,7 +1,6 @@
-
 @extends('layouts.app')
 @section('content')
-<title>Event Log</title>
+<title>Auto</title>
 
 <img src="diagrams.php" alt="Statistics Diagram">
 

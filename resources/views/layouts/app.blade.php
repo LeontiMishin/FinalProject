@@ -1,16 +1,34 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ee">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
         .logo {
-        margin-left: 50px; /* Отступ от левого края */
-        border: 2px solid rgba(0, 0, 0, 0.1); /* Расстворенная рамка */
+        margin-left: 50px;
+        border: 2px solid rgba(0, 0, 0, 0.1);
         }
         .profile {
             margin-right: 50px;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+            max-height: calc(100vh - 173px); /* Предполагая, что высота навигационной панели и подвала составляет 120px */
+            overflow: auto; /* Добавьте прокрутку внутри .content, если содержимое превышает максимальную высоту */
+        }
+        .footer {
+            flex-shrink: 0;
+            background-color: #E3E7EB;
+            width: 100%;
+            text-align: center;
+            padding: 8px 0;
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #34558b;">
@@ -20,19 +38,19 @@
         </a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link h2 text-white" aria-current="page" href="/login">Login</a>
+                <a class="nav-link h2 text-white" aria-current="page" href="/login">Logi sisse</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h2 text-white" aria-current="page" href="/main">Main </a>
+                <a class="nav-link h2 text-white" aria-current="page" href="/main">Avaleht</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/e-parking">E-parking </a>
+                <a class="nav-link h2 text-white" href="/e-parking">E-parkimine</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/tarkTee">Tark Tee </a>
+                <a class="nav-link h2 text-white" href="/tarkTee">Tark Tee</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/eventLog">Event log </a>
+                <a class="nav-link h2 text-white" href="/eventLog">Auto</a>
             </li>
         </ul>
         <a class="profile" href="/profile">
@@ -43,11 +61,12 @@
   </head>
 
   <body>
+  <div class="content">
   @yield('content')
+  </div>
   </body>
-
-  <footer class="container text-center">
-    <p>© SPTV20 Leonti Mishin 2024 </p>
+  <footer class="footer">
+    <p>© SPTV20 Leonti Mishin </p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </html>

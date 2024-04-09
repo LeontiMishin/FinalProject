@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<title>E-Parking</title>
+<title>E-Parkimine</title>
 
 <style>
 
@@ -21,7 +21,7 @@
         background-color: #6DB9FF; /* Цвет для нечетных карточек */
     }
     .color2 {
-        background-color: #AFFFCF; /* Цвет для четных карточек */
+        background-color: #AFFFCF;
     }
     .card-text, .card-title {
         margin-bottom: 60px;
@@ -54,7 +54,7 @@
   <div class="col-sm-4">
     <div class="img">
         <div class="card-img">
-            <a href="http://your-link.com">
+            <a href="/addParkimisluba">
                 <img src="http://127.0.0.1:8000/images/add.png" class="mx-auto d-block" alt="logo" width="100" height="100">
             </a>
         </div>

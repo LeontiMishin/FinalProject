@@ -30,5 +30,7 @@ Route::get('/login', [LoginController::class,'index'
 ])->name('login.index');
 Route::get('/profile', [ProfileController::class,'index'
 ])->name('profile.index');
+Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
+])->name('addParkimisluba.index');
 
 
