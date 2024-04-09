@@ -31,8 +31,4 @@ Route::get('/login', [LoginController::class,'index'
 Route::get('/profile', [ProfileController::class,'index'
 ])->name('profile.index');
 
-Route::get('/parking', [ParkingController::class, 'index'])->name('parking.index');
-Route::post('/parking/{spot}', [ParkingController::class, 'update'])->name('parking.update');
-Route::get('/', [ParkingController::class, 'stats'])->name('home');
-
 

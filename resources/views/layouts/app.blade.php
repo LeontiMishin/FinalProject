@@ -6,8 +6,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
         .logo {
-        margin-left: 30px; /* Отступ от левого края */
+        margin-left: 50px; /* Отступ от левого края */
         border: 2px solid rgba(0, 0, 0, 0.1); /* Расстворенная рамка */
+        }
+        .profile {
+            margin-right: 50px;
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #34558b;">
@@ -32,8 +35,8 @@
                 <a class="nav-link h2 text-white" href="/eventLog">Event log </a>
             </li>
         </ul>
-        <a href="/profile">
-            <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left" alt="logo" width="85" height="80">
+        <a class="profile" href="/profile">
+            <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left" alt="logo" width="105" height="100">
         </a>
     </div>
     </nav>
