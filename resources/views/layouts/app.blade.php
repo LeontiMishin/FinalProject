@@ -20,8 +20,8 @@
         }
         .content {
             flex: 1 0 auto;
-            max-height: calc(100vh - 173px); /* Предполагая, что высота навигационной панели и подвала составляет 120px */
-            overflow: auto; /* Добавьте прокрутку внутри .content, если содержимое превышает максимальную высоту */
+            max-height: calc(100vh - 173px);
+            overflow: auto;
         }
         .footer {
             flex-shrink: 0;
@@ -37,9 +37,6 @@
             <img src="http://127.0.0.1:8000/images/smartParking.png" class="rounded float-left logo" alt="logo" width="100" height="100" style="border: 3px solid black;">
         </a>
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link h2 text-white" aria-current="page" href="/login">Logi sisse</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link h2 text-white" aria-current="page" href="/main">Avaleht</a>
             </li>

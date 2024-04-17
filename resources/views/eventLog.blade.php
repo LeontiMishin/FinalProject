@@ -2,9 +2,6 @@
 @section('content')
 <title>Auto</title>
 
-<img src="diagrams.php" alt="Statistics Diagram">
-
-
 <table class="table">
   <thead>
     <tr>
@@ -35,10 +32,9 @@
   </tbody>
 </table>
 
+<a class="nav-link h2 text-black" aria-current="page" href="/login">Logi sisse</a>
 
 <div class="progress-circle">
   <div class="progress-circle-inner" data-content="75%"></div>
 </div>
-
-<i class="bi bi-person"></i> Users: 1,234
 @endsection
