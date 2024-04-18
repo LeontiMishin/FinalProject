@@ -16,24 +16,49 @@
     .images {
         display: flex;
         justify-content: start;
+        margin-top: 20px;
     }
-
+    .images a {
+        margin-right: 20px;
+    }
+    .d-flex {
+        align-items: center;
+    }
+    .d-flex button {
+        margin: 0 20px;
+    }
+    @media (max-width: 600px) {
+        .top-section, .bottom-section {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .form-group {
+            width: 100%;
+        }
+        .images img {
+            width: 100%;
+            height: auto;
+        }
+    }
 </style>
 </head>
 <body>
-    <div class="top-section d-flex flex-column align-items-center justify-content-center">
+<div class="top-section py-5 d-flex flex-column align-items-center justify-content-center">
         <h2 class="text-center">Parkimisloa taotlus</h2>
-        <div class="form-group">
-            <label for="fullname">Full name</label>
-            <input type="text" id="fullname" name="fullname">
-
-            <label for="regnumber">Reg Number</label>
-            <input type="text" id="regnumber" name="regnumber">
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label for="fullname">Full name:</label>
+                <input type="text" id="fullname" name="fullname" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <label for="regnumber">Reg Number:</label>
+                <input type="text" id="regnumber" name="regnumber" class="form-control">
+            </div>
         </div>
 
         <div class="form-group">
             <label for="signature">Signature</label>
-            <canvas id="signature" width="500" height="200" style="border:2px solid black;"></canvas>
+            <canvas id="signature" width="500" height="200" style="border:2px solid black;" class="img-fluid"></canvas>
         </div>
 
         <div class="d-flex align-items-center">
@@ -42,7 +67,7 @@
         </div>
     </div>
 
-    <div class="bottom-section d-flex align-items-center justify-content-center">
+    <div class="container py-5 d-flex align-items-center justify-content-center">
         <div class="form-group mr-3">
             <select class="form-select" id="carNumbers">
                 <option selected>Vali auto number...</option>
@@ -51,7 +76,7 @@
             </select>
         </div>
         <button class="btn btn-danger mr-3">Kustutada</button>
-        <div class="images">
+        <div class="d-flex flex-wrap">
             <a href="https://www.transpordiamet.ee/">
                 <img style="width: 60%; height: auto;" src="http://127.0.0.1:8000/images/Transpordiamet.png" alt="Transpordiamet">
             </a>

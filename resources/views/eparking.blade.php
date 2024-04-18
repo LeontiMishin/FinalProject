@@ -31,8 +31,10 @@
         overflow-x: hidden;
     }
     .row {
-        overflow-x: hidden;
-    }
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
 
 </style>
 
@@ -52,7 +54,7 @@
         <div class="col-sm-4">
             <div class="card color2">
             <div class="card-body text-center">
-            <h3 class="card-title">Parkimisluba - külaline</h3>
+                <h3 class="card-title">Parkimisluba - külaline</h3>
                 <p class="card-text" style="margin-bottom: 70px;">Kangelaste 34/NR.473674</p>
                 <h2 class="card-title">290 TKD</h2>
                 <h4 class="card-title" style="margin-bottom: 70px;">Andrei Mishin</h4>

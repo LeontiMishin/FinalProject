@@ -20,7 +20,7 @@
         }
         .content {
             flex: 1 0 auto;
-            max-height: calc(100vh - 173px);
+            min-height: calc(100vh - 173px);
             overflow: auto;
         }
         .footer {
@@ -66,4 +66,12 @@
     <p>© SPTV20 Leonti Mishin </p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script>
+    window.onload = function() {
+        var headerHeight = document.querySelector('nav').offsetHeight;
+        var footerHeight = document.querySelector('footer').offsetHeight;
+        var content = document.querySelector('.content');
+        content.style.minHeight = 'calc(100vh - ' + (headerHeight + footerHeight) + 'px)';
+    };
+  </script>
 </html>
