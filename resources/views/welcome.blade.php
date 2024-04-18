@@ -2,6 +2,20 @@
 @section('content')
 <title>Avaleht</title>
 
+<style>
+    .car-image:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease;
+    }
+    .car-image {
+        border-radius: 15px;
+    }
+    .image-block {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="d-flex">
     <div class="card" style="width: 135rem;">
@@ -39,25 +53,25 @@
     <div class="image-placeholder" style="flex-grow: 1; height: 76vh; background-color: #eee; position: relative;">
         <div class="row">
         <div class="col-12">
-            <img src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 1" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 2" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 3" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 4" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 5" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 6" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 7" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 1" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 2" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 3" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 4" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 5" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFrontRed.jpg" alt="Car 6" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carFront.jpg" alt="Car 7" style="width: 9%; height: 100%; object-fit: contain;">
         </div>
         <div class="col-12">
             <img src="http://127.0.0.1:8000/images/road.jpg" alt="Road" style="width: 65%; height: auto; object-fit: cover;">
         </div>
         <div class="col-12">
-            <img src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 8" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 9" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBackRed.jpg" alt="Car 10" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 11" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBackRed.jpg" alt="Car 12" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 13" style="width: 9%; height: 100%; object-fit: contain;">
-            <img src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 14" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 8" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 9" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBackRed.jpg" alt="Car 10" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 11" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBackRed.jpg" alt="Car 12" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 13" style="width: 9%; height: 100%; object-fit: contain;">
+            <img class="car-image" src="http://127.0.0.1:8000/images/carBack.jpg" alt="Car 14" style="width: 9%; height: 100%; object-fit: contain;">
         </div>
         </div>
     </div>

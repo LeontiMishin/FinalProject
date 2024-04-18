@@ -17,9 +17,7 @@
         display: flex;
         justify-content: start;
     }
-    .images img {
-        margin-right: 10px;
-    }
+
 </style>
 </head>
 <body>
@@ -55,10 +53,10 @@
         <button class="btn btn-danger mr-3">Kustutada</button>
         <div class="images">
             <a href="https://www.transpordiamet.ee/">
-                <img src="http://127.0.0.1:8000/images/Transpordiamet.png" alt="Transpordiamet">
+                <img style="width: 60%; height: auto;" src="http://127.0.0.1:8000/images/Transpordiamet.png" alt="Transpordiamet">
             </a>
             <a href="https://www.eesti.ee/et">
-                <img src="http://127.0.0.1:8000/images/EestiEE.png" alt="EestiEE">
+                <img style="width: 60%; height: auto;" src="http://127.0.0.1:8000/images/EestiEE.png" alt="EestiEE">
             </a>
         </div>
     </div>

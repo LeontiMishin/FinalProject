@@ -14,7 +14,7 @@
         margin-top: 200px;
     }
     .card {
-        margin-top: 30px;
+        margin-top: 60px;
         margin-left: 40px;
     }
     .color1 {
