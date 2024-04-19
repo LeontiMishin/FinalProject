@@ -33,28 +33,28 @@
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #34558b;">
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <a href="/main" style="margin-right: 15px;">
-            <img src="http://127.0.0.1:8000/images/smartParking.png" class="rounded float-left logo" alt="logo" width="100" height="100" style="border: 3px solid black;">
-        </a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link h2 text-white" aria-current="page" href="/main">Avaleht</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/e-parking">E-parkimine</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/tarkTee">Tark Tee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link h2 text-white" href="/eventLog">Auto</a>
-            </li>
-        </ul>
-        <a class="profile" href="/profile">
-            <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left" alt="logo" width="105" height="100">
-        </a>
-    </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="/main" style="margin-right: 15px;">
+                <img src="http://127.0.0.1:8000/images/smartParking.png" class="rounded float-left logo" alt="logo" width="100" height="100" style="border: 3px solid black;">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link h2 text-white" aria-current="page" href="/main">Avaleht</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 text-white" href="/e-parking">E-parkimine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 text-white" href="/tarkTee">Tark Tee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 text-white" href="/eventLog">Auto</a>
+                </li>
+            </ul>
+            <a class="profile" href="/profile">
+                <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left" alt="logo" width="105" height="100">
+            </a>
+        </div>
     </nav>
   </head>
 

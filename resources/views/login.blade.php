@@ -18,30 +18,30 @@
 </head>
 <body>
     <div class="container">
-    <div class="row min-vh-100 justify-content-center align-items-center">
-        <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
-            <form>
-                <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+        <div class="row min-vh-100 justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Login</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <div class="mb-3">
+                                <a class="" aria-current="page" href="/main">Main</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-                <div class="mb-3">
-                    <a class="" aria-current="page" href="/main">Main</a>
-                </div>
-            </form>
+            <p>&copy; SPTV20 Leonti Mishin 2024 </p>
             </div>
         </div>
-        <p>&copy; SPTV20 Leonti Mishin 2024 </p>
-        </div>
-    </div>
     </div>
 </body>
 

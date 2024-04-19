@@ -3,7 +3,6 @@
 <title>E-Parkimine</title>
 
 <style>
-
     .card-img {
         display: flex;
         align-items: center;
@@ -35,31 +34,30 @@
     flex-direction: row;
     align-items: stretch;
 }
-
 </style>
 
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-sm-4">
             <div class="card color1">
-            <div class="card-body text-center">
-                <h3 class="card-title">Parkimisluba</h3>
-                <p class="card-text" style="margin-bottom: 70px;">Kangelaste 34/NR.473673</p>
-                <h2 class="card-title">078 BFP</h2>
-                <h4 class="card-title" style="margin-bottom: 70px;">Leonti Mishin</h4>
-                <p class="card-text">Kehtivus: 12.10.2025</p>
-            </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title">Parkimisluba</h3>
+                    <p class="card-text" style="margin-bottom: 70px;">Kangelaste 34/NR.473673</p>
+                    <h2 class="card-title">078 BFP</h2>
+                    <h4 class="card-title" style="margin-bottom: 70px;">Leonti Mishin</h4>
+                    <p class="card-text">Kehtivus: 12.10.2025</p>
+                </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="card color2">
-            <div class="card-body text-center">
-                <h3 class="card-title">Parkimisluba - külaline</h3>
-                <p class="card-text" style="margin-bottom: 70px;">Kangelaste 34/NR.473674</p>
-                <h2 class="card-title">290 TKD</h2>
-                <h4 class="card-title" style="margin-bottom: 70px;">Andrei Mishin</h4>
-                <p class="card-text">Kehtivus: 02.11.2025</p>
-            </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title">Parkimisluba - külaline</h3>
+                    <p class="card-text" style="margin-bottom: 70px;">Kangelaste 34/NR.473674</p>
+                    <h2 class="card-title">290 TKD</h2>
+                    <h4 class="card-title" style="margin-bottom: 70px;">Andrei Mishin</h4>
+                    <p class="card-text">Kehtivus: 02.11.2025</p>
+                </div>
             </div>
         </div>
         <div class="col-sm-4">

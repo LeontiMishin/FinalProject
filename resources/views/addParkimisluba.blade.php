@@ -46,7 +46,7 @@
 </style>
 </head>
 <body>
-<div class="top-section py-3 d-flex flex-column align-items-center justify-content-center">
+    <div class="top-section py-3 d-flex flex-column align-items-center justify-content-center">
         <h2 class="text-center">Parkimisloa taotlus</h2>
         <div class="form-group row text1">
             <div class="col-sm-6">
@@ -91,4 +91,5 @@
 
 
     <script src="http://127.0.0.1:8000/JS/signature.js"></script>
+</body>
 @endsection

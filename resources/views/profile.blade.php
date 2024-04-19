@@ -17,7 +17,6 @@
         justify-content: center;
     }
 
-
     .social-links img {
         transition: all 0.3s ease-in-out;
         margin-top: 15px;
@@ -41,6 +40,7 @@
         background-color: #0056b3;
         border-color: #0056b3;
     }
+
     .button{
         margin-top: 15px;
     }
@@ -51,21 +51,19 @@
         <div class="col-md-4">
             <div class="profile-image mb-3">
                 <img src="http://127.0.0.1:8000/images/smartParking.png" class="rounded-circle" alt="Profile Image" style="width: 210px; height: 210px; object-fit: cover;">
-
-            <div class="social-links d-flex justify-content-around mb-2" style="width: 210px;">
-                <a href="https://twitter.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/twitter.png" alt="Twitter" width="32" height="32"></a>
-                <a href="https://instagram.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/instagram.png" alt="Instagram" width="32" height="32"></a>
-                <a href="https://facebook.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/facebook.png" alt="Facebook" width="32" height="32"></a>
-            </div>
-            <div class="user-details" style="border: 1px solid #ccc; padding: 10px;">
-                <p>Full Name: Leonti Mishin</p>
-                <p>Email: leonti.gold@gmail.com</p>
-                <p>Phone: 58746356</p>
-                <p>Address: Kangelaste 56-25</p>
-            </div>
+                <div class="social-links d-flex justify-content-around mb-2" style="width: 210px;">
+                    <a href="https://twitter.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/twitter.png" alt="Twitter" width="32" height="32"></a>
+                    <a href="https://instagram.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/instagram.png" alt="Instagram" width="32" height="32"></a>
+                    <a href="https://facebook.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/facebook.png" alt="Facebook" width="32" height="32"></a>
+                </div>
+                <div class="user-details" style="border: 1px solid #ccc; padding: 10px;">
+                    <p>Full Name: Leonti Mishin</p>
+                    <p>Email: leonti.gold@gmail.com</p>
+                    <p>Phone: 58746356</p>
+                    <p>Address: Kangelaste 56-25</p>
+                </div>
             </div>
         </div>
-
         <div class="col-md-4">
             <form action="/profile" method="post">
                 @csrf
