@@ -4,8 +4,8 @@
 <style>
     .top-section {
         background-color: #D7D7D7;
-        padding: 20px;
         color: black;
+        text-align: center;
     }
     .form-group {
         margin-bottom: 10px;
@@ -40,12 +40,15 @@
             height: auto;
         }
     }
+    .text1 {
+        padding-top: 15px;
+    }
 </style>
 </head>
 <body>
-<div class="top-section py-5 d-flex flex-column align-items-center justify-content-center">
+<div class="top-section py-3 d-flex flex-column align-items-center justify-content-center">
         <h2 class="text-center">Parkimisloa taotlus</h2>
-        <div class="form-group row">
+        <div class="form-group row text1">
             <div class="col-sm-6">
                 <label for="fullname">Full name:</label>
                 <input type="text" id="fullname" name="fullname" class="form-control">
@@ -57,7 +60,7 @@
         </div>
 
         <div class="form-group">
-            <label for="signature">Signature</label>
+            <label for="signature"></label>
             <canvas id="signature" width="500" height="200" style="border:2px solid black;" class="img-fluid"></canvas>
         </div>
 
@@ -67,7 +70,7 @@
         </div>
     </div>
 
-    <div class="container py-5 d-flex align-items-center justify-content-center">
+    <div class="container py-3 d-flex align-items-center justify-content-center">
         <div class="form-group mr-3">
             <select class="form-select" id="carNumbers">
                 <option selected>Vali auto number...</option>
@@ -87,42 +90,5 @@
     </div>
 
 
-    <script>
-        var canvas = document.getElementById('signature');
-        var context = canvas.getContext('2d');
-        var drawing = false;
-        var mousePos = { x:0, y:0 };
-        var lastPos = mousePos;
-
-        canvas.addEventListener('mousedown', function (e) {
-            drawing = true;
-            lastPos = getMousePos(canvas, e);
-        }, false);
-
-        canvas.addEventListener('mouseup', function () {
-            drawing = false;
-        }, false);
-
-        canvas.addEventListener('mousemove', function (e) {
-            mousePos = getMousePos(canvas, e);
-            renderCanvas();
-        }, false);
-
-        function getMousePos(canvasDom, mouseEvent) {
-            var rect = canvasDom.getBoundingClientRect();
-            return {
-                x: mouseEvent.clientX - rect.left,
-                y: mouseEvent.clientY - rect.top
-            };
-        }
-
-        function renderCanvas() {
-            if (drawing) {
-                context.moveTo(lastPos.x, lastPos.y);
-                context.lineTo(mousePos.x, mousePos.y);
-                context.stroke();
-                lastPos = mousePos;
-            }
-        }
-    </script>
+    <script src="http://127.0.0.1:8000/JS/signature.js"></script>
 @endsection

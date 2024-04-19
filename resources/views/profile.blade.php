@@ -2,6 +2,50 @@
 @section('content')
 <title>Profile</title>
 
+<style>
+    .full-height {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .social-links img {
+        transition: all 0.3s ease-in-out;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .social-links img:hover {
+        transform: scale(1.1);
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    .button{
+        margin-top: 15px;
+    }
+</style>
+
 <div class="container d-flex flex-column justify-content-center py-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -42,6 +86,18 @@
                     <input type="text" class="form-control" id="address" name="address" value="Kangelaste 56-25">
                 </div>
                 <div class="form-group">
+                    <label for="address">Twitter</label>
+                    <input type="text" class="form-control" id="address" name="twitter" value="twitter.com/username/status/1234567890">
+                </div>
+                <div class="form-group">
+                    <label for="address">Instagram</label>
+                    <input type="text" class="form-control" id="address" name="instagram" value="www.instagram.com/p/BCDWEf/">
+                </div>
+                <div class="form-group">
+                    <label for="address">Facebook</label>
+                    <input type="text" class="form-control" id="address" name="facebook" value="www.facebook.com/username/posts/1234567890">
+                </div>
+                <div class="form-group button">
                     <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
                 </div>
             </form>
