@@ -31,6 +31,21 @@
             text-align: center;
             padding: 8px 0;
         }
+        @media (max-width: 768px) {
+            .logo{
+                margin-left: 20px;
+                width: 70px;
+                height: 70px;
+            }
+            .profile {
+                margin-right: 20px;
+                width: 75px;
+                height: 70px;
+            }
+            .navbar-nav .nav-link {
+                font-size: 16px;
+            }
+        }
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #34558b;">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
@@ -52,7 +67,7 @@
                 </li>
             </ul>
             <a class="profile" href="/profile">
-                <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left" alt="logo" width="105" height="100">
+                <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left logo2" alt="logo" width="105" height="100">
             </a>
         </div>
     </nav>

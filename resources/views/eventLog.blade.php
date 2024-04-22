@@ -52,7 +52,22 @@
     <div class="row">
         <div class="col-md-12">
             <div class="collapse bg-grey p-3" id="carStats1">
-                <h4>Статистика машины</h4>
+                <?php
+                    require_once '/xampp/htdocs/finalProject/finalProject/vendor/autoload.php';
+                    use Sunrise\Vin\Vin;
+                    try {
+                        $vin = new Vin('WVWZZZ3CZ8E195565');
+                    } catch (InvalidArgumentException $e) {
+                        // It isn't a valid VIN...
+                    }
+                    echo "WMI: " . $vin->getWmi() . "<br>"; // "WVW"
+                    echo "VDS: " . $vin->getVds() . "<br>"; // "ZZZ1KZ"
+                    echo "VIS: " . $vin->getVis() . "<br>"; // "6W612305"
+                    echo "Region: " . $vin->getRegion() . "<br>"; // "Europe"
+                    echo "Country: " . $vin->getCountry() . "<br>"; // "Germany"
+                    echo "Manufacturer: " . $vin->getManufacturer() . "<br>"; // "Volkswagen"
+                    echo "Model Year: " . implode(', ', $vin->getModelYear()) . "<br>"; // [2006]
+                ?>
             </div>
         </div>
     </div>

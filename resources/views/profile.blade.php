@@ -57,10 +57,11 @@
                     <a href="https://facebook.com/username" target="_blank"><img src="http://127.0.0.1:8000/images/facebook.png" alt="Facebook" width="32" height="32"></a>
                 </div>
                 <div class="user-details" style="border: 1px solid #ccc; padding: 10px;">
-                    <p>Full Name: Leonti Mishin</p>
-                    <p>Email: leonti.gold@gmail.com</p>
-                    <p>Phone: 58746356</p>
-                    <p>Address: Kangelaste 56-25</p>
+                    <p>Full Name: {{ $profile->full_name }}</p>
+                    <p>Email: {{ $profile->email }}</p>
+                    <p>Phone: {{ $profile->phone }}</p>
+                    <p>Address: {{ $profile->address }}</p>
+                    <p>VIN: {{ $profile->vin }}</p>
                 </div>
             </div>
         </div>
@@ -69,31 +70,35 @@
                 @csrf
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" value="Leonti Mishin">
+                    <input type="text" class="form-control" id="fullname" name="fullname" value="{{ $profile->full_name }}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" value="leonti.gold@gmail.com">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ $profile->email }}">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" value="58746356">
+                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ $profile->phone }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="Kangelaste 56-25">
+                    <input type="text" class="form-control" id="address" name="address" value="{{ $profile->address }}">
+                </div>
+                <div class="form-group">
+                    <label for="address">VIN</label>
+                    <input type="text" class="form-control" id="address" name="facebook" value="{{ $profile->vin }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Twitter</label>
-                    <input type="text" class="form-control" id="address" name="twitter" value="twitter.com/username/status/1234567890">
+                    <input type="text" class="form-control" id="address" name="twitter" value="{{ $profile->twitter }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Instagram</label>
-                    <input type="text" class="form-control" id="address" name="instagram" value="www.instagram.com/p/BCDWEf/">
+                    <input type="text" class="form-control" id="address" name="instagram" value="{{ $profile->instagram }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Facebook</label>
-                    <input type="text" class="form-control" id="address" name="facebook" value="www.facebook.com/username/posts/1234567890">
+                    <input type="text" class="form-control" id="address" name="facebook" value="{{ $profile->facebook }}">
                 </div>
                 <div class="form-group button">
                     <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>

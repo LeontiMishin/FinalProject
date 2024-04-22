@@ -55,8 +55,8 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">Uudised</h5>
                     <p class="card-text">
-                        <a href="#">Uudis 1</a><br>
-                        <a href="#">Uudis 2</a><br>
+                        <a href="#">Majakoosolek 10.05</a><br>
+                        <a href="#">13-14.04 sooja vett ei tule</a><br>
                         <a href="#">Uudis 3</a><br>
                     </p>
                 </div>
