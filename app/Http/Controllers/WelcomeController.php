@@ -16,4 +16,11 @@ class WelcomeController extends Controller
 
         return view('welcome', compact('news', 'places'));
     }
+
+    public function show($id)
+    {
+        $news = News::find($id);
+
+        return response()->json($news);
+    }
 }

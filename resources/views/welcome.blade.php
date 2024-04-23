@@ -26,6 +26,16 @@
         height: auto;
         overflow: hidden;
     }
+    .news-link {
+        font-size: 1em;
+        border: 1px solid #000;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        border-radius: 7px;
+    }
 </style>
 
 <div class="container-fluid">
@@ -60,11 +70,11 @@
                 <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ $occupiedPercentage }}%" aria-valuenow="{{ $occupiedPercentage }}" aria-valuemin="0" aria-valuemax="100">{{ round($occupiedPercentage) }}%</div>
             </div>
             <div class="card mt-3" style="max-width: 50rem; width: 100%;" >
-                <div class="card-body text-center">
-                    <h5 class="card-title">Uudised</h5>
-                    <p class="card-text">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Uudised</h5>
+                    <p class="card-text text-left">
                         @foreach($news as $new)
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#newsModal">{{$new->name}}</a><br>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#newsModal" class="news-link" data-id="{{$new->id}}">{{$new->name}}</a><br>
                         @endforeach
                     </p>
                 </div>
@@ -102,11 +112,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newsModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="newsModalLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -114,5 +124,26 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('.news-link').click(function(e){
+        e.preventDefault();
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/news/'+id,
+            method: 'GET',
+            success: function(data){
+                $('#newsModalLabel').text(data.name);
+                $('.modal-body').text(data.article);
+                $('#newsModal').modal('show');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+});
+</script>
 
 @endsection

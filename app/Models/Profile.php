@@ -23,6 +23,7 @@ class Profile extends Model
         'twitter',
         'instagram',
         'facebook',
+        'photo',
     ];
 
     /**

@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +35,5 @@ Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
 ])->name('addParkimisluba.index');
 
 Route::get('/main', 'App\Http\Controllers\WelcomeController@index');
+
+Route::get('/news/{id}', [WelcomeController::class, 'show']);

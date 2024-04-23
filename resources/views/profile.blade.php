@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="profile-image mb-3">
-                <img src="http://127.0.0.1:8000/images/smartParking.png" class="rounded-circle" id="profile" style="width: 210px; height: 210px; object-fit: cover;">
+                <img src="{{ $profile->photo }}" class="rounded-circle" id="profile" style="width: 210px; height: 210px; object-fit: cover;">
                 <div class="social-links d-flex justify-content-around mb-2" style="width: 210px;">
                     <a href="{{ $profile->twitter }}" target="_blank"><img src="http://127.0.0.1:8000/images/twitter.png" alt="Twitter" width="32" height="32"></a>
                     <a href="{{ $profile->instagram }}" target="_blank"><img src="http://127.0.0.1:8000/images/instagram.png" alt="Instagram" width="32" height="32"></a>
