@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Photo extends Model
 {
     use HasFactory;
 
@@ -15,14 +15,8 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
-        'full_name',
-        'email',
-        'phone',
-        'address',
-        'vin',
-        'twitter',
-        'instagram',
-        'facebook',
+        'name',
+        'link',
     ];
 
     /**
@@ -30,5 +24,5 @@ class Profile extends Model
      *
      * @var string
      */
-    protected $table = 'profile';
+    protected $table = 'photo';
 }

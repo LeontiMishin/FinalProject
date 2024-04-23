@@ -60,13 +60,13 @@
                     } catch (InvalidArgumentException $e) {
                         // It isn't a valid VIN...
                     }
-                    echo "WMI: " . $vin->getWmi() . "<br>"; // "WVW"
-                    echo "VDS: " . $vin->getVds() . "<br>"; // "ZZZ1KZ"
-                    echo "VIS: " . $vin->getVis() . "<br>"; // "6W612305"
-                    echo "Region: " . $vin->getRegion() . "<br>"; // "Europe"
-                    echo "Country: " . $vin->getCountry() . "<br>"; // "Germany"
-                    echo "Manufacturer: " . $vin->getManufacturer() . "<br>"; // "Volkswagen"
-                    echo "Model Year: " . implode(', ', $vin->getModelYear()) . "<br>"; // [2006]
+                    echo "WMI: " . $vin->getWmi() . "<br>";
+                    echo "VDS: " . $vin->getVds() . "<br>";
+                    echo "VIS: " . $vin->getVis() . "<br>";
+                    echo "Region: " . $vin->getRegion() . "<br>";
+                    echo "Country: " . $vin->getCountry() . "<br>";
+                    echo "Manufacturer: " . $vin->getManufacturer() . "<br>";
+                    echo "Model Year: " . implode(', ', $vin->getModelYear()) . "<br>";
                 ?>
             </div>
         </div>

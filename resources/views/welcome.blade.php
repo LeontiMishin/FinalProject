@@ -39,25 +39,33 @@
                     </tr>
                     <tr>
                         <th scope="row">Vabad:</th>
-                        <td>7</td>
+                        <td>{{ $places-> free }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Hõivatud:</th>
-                        <td colspan="2">5</td>
+                        <td colspan="2">{{ $places-> occupied }}</td>
                     </tr>
                 </tbody>
             </table>
             <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65%</div>
-                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 35%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">35%</div>
+                @php
+                    $total = 12;
+                    $free = $places->free;
+                    $occupied = $places->occupied;
+
+                    $freePercentage = ($free / $total) * 100;
+                    $occupiedPercentage = ($occupied / $total) * 100;
+                @endphp
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ $freePercentage }}%" aria-valuenow="{{ $freePercentage }}" aria-valuemin="0" aria-valuemax="100">{{ round($freePercentage) }}%</div>
+                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ $occupiedPercentage }}%" aria-valuenow="{{ $occupiedPercentage }}" aria-valuemin="0" aria-valuemax="100">{{ round($occupiedPercentage) }}%</div>
             </div>
             <div class="card mt-3" style="max-width: 50rem; width: 100%;" >
                 <div class="card-body text-center">
                     <h5 class="card-title">Uudised</h5>
                     <p class="card-text">
-                        <a href="#">Majakoosolek 10.05</a><br>
-                        <a href="#">13-14.04 sooja vett ei tule</a><br>
-                        <a href="#">Uudis 3</a><br>
+                        @foreach($news as $new)
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#newsModal">{{$new->name}}</a><br>
+                        @endforeach
                     </p>
                 </div>
             </div>
@@ -88,6 +96,23 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection

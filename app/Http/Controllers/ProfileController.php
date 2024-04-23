@@ -8,7 +8,7 @@ use App\Models\Profile;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $profile = Profile::find(1);
 

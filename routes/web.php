@@ -33,4 +33,4 @@ Route::get('/profile', [ProfileController::class,'index'
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
 ])->name('addParkimisluba.index');
 
-
+Route::get('/main', 'App\Http\Controllers\WelcomeController@index');
