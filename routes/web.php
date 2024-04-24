@@ -25,15 +25,17 @@ Route::get('/main', [WelcomeController::class,'index'
 ])->middleware('auth')->name('welcome.index');
 
 Route::get('/e-parking', [EparkingController::class,'index'
-])->name('eparking.index');
+])->middleware('auth')->name('eparking.index');
 Route::get('/tarkTee', [TarkTeeController::class,'index'
-])->name('tarkTee.index');
+])->middleware('auth')->name('tarkTee.index');
 Route::get('/eventLog', [EventLogController::class,'index'
-])->name('eventLog.index');
+])->middleware('auth')->name('eventLog.index');
 Route::get('/profile', [ProfileController::class,'index'
-])->name('profile.index');
+])->middleware('auth')->name('profile.index');
+
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
-])->name('addParkimisluba.index');
+])->middleware('auth')->name('addParkimisluba.index');
+Route::post('/addParkimisluba', [AddParkimislubaController::class, 'store'])->name('signature');
 
 Route::get('/main', 'App\Http\Controllers\WelcomeController@index');
 
@@ -44,3 +46,5 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 
 Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
+
+Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');

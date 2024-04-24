@@ -46,17 +46,23 @@
 </style>
 </head>
 <body>
+
+
+
+<form action="/submit" method="post">
+            @csrf
+
     <div class="top-section py-3 d-flex flex-column align-items-center justify-content-center">
         <h2 class="text-center">Parkimisloa taotlus</h2>
         <div class="form-group row text1">
-            <div class="col-sm-6">
-                <label for="fullname">Full name:</label>
-                <input type="text" id="fullname" name="fullname" class="form-control">
-            </div>
-            <div class="col-sm-6">
-                <label for="regnumber">Reg Number:</label>
-                <input type="text" id="regnumber" name="regnumber" class="form-control">
-            </div>
+                <div class="col-sm-6">
+                    <label for="fullname">Full name:</label>
+                    <input type="text" id="fullname" name="fullname" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="regnumber">Reg Number:</label>
+                    <input type="text" id="regnumber" name="regnumber" class="form-control">
+                </div>
         </div>
 
         <div class="form-group">
@@ -66,9 +72,11 @@
 
         <div class="d-flex align-items-center">
             <p class="mr-3">1 jäänud - külaline</p>
-            <button class="btn btn-success">Saada</button>
+            <button type="submit" class="btn btn-success">Saada</button>
         </div>
     </div>
+</form>
+
 
     <div class="container py-3 d-flex align-items-center justify-content-center">
         <div class="form-group mr-3">

@@ -104,7 +104,10 @@
                     <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
                 </div>
                 <div class="form-group button">
-                    <a href="/" type="submit" class="btn btn-danger" style="width: 210px;">Log Out</a>
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 210px;">Log Out</a>
+                    </form>
                 </div>
             </form>
         </div>

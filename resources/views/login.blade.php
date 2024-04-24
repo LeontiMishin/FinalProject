@@ -41,6 +41,12 @@
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
+                            <div class="flex justify-between form-check mb-6">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                <label class="form-check-label" for="remember">
+                                    Remember me
+                                </label>
+                            </div>
                             <button type="submit" class="btn btn-primary">Log In</button>
                             <div class="mb-3">
                                 <a class="" aria-current="page" href="/register">Register</a>
