@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -18,9 +19,9 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|confirmed|min:8'
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'password' => ['required', 'min:8']
         ]);
 
         $user = User::create([
@@ -31,6 +32,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect('/main');
+        return redirect(RouteServiceProvider::HOME);
     }
 }

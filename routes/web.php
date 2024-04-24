@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +30,6 @@ Route::get('/tarkTee', [TarkTeeController::class,'index'
 ])->name('tarkTee.index');
 Route::get('/eventLog', [EventLogController::class,'index'
 ])->name('eventLog.index');
-Route::get('/login', [LoginController::class,'index'
-])->name('login.index');
 Route::get('/profile', [ProfileController::class,'index'
 ])->name('profile.index');
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
@@ -42,3 +41,6 @@ Route::get('/news/{id}', [WelcomeController::class, 'show']);
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
