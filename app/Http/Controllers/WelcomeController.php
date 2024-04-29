@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->take(4)->get();
         $places = Places::find(1);
 
         return view('welcome', compact('news', 'places'));

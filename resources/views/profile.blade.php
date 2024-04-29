@@ -108,6 +108,17 @@
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 210px;">Log Out</a>
                     </form>
+
+                    <div class="container mt-5">
+                        <form action="/upload_image.php" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="fileToUpload" class="form-label">Выберите изображение для загрузки:</label>
+                                <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                            </div>
+                        <button type="submit" class="btn btn-primary" name="submit">Загрузить изображение</button>
+                        </form>
+                    </div>
+
                 </div>
             </form>
         </div>
