@@ -44,6 +44,10 @@
     .button{
         margin-top: 15px;
     }
+
+    .container {
+    overflow: hidden;
+    }
 </style>
 
 <div class="container d-flex flex-column justify-content-center py-5">
@@ -100,14 +104,9 @@
                     <label for="address">Facebook</label>
                     <input type="text" class="form-control" id="address" name="facebook" value="{{ $profile->facebook }}">
                 </div>
-                <div class="form-group button">
-                    <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
-                </div>
-                <div class="form-group button">
-                    <form method="post" action="{{ route('logout') }}">
-                        @csrf
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 210px;">Log Out</a>
-                    </form>
+            </div>
+
+            <div class="col-md-4">
 
                     <div class="container mt-5">
                         <form action="/upload_image.php" method="post" enctype="multipart/form-data">
@@ -118,6 +117,16 @@
                         <button type="submit" class="btn btn-primary" name="submit">Загрузить изображение</button>
                         </form>
                     </div>
+
+
+                <div class="form-group button">
+                    <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
+                </div>
+                <div class="form-group button">
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 210px;">Log Out</a>
+                    </form>
 
                 </div>
             </form>

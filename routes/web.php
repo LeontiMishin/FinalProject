@@ -48,3 +48,6 @@ Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->n
 Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
+
+Route::get('/adminPanel', [AdminPanelController::class, 'index'])->middleware('guest')->name('adminPanel');
+Route::get('/adminPanel/news', [AdminPanelNewsController::class, 'index'])->middleware('guest')->name('adminPanelNews');
