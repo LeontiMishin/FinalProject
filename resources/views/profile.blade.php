@@ -65,7 +65,6 @@
                     <p>Email: {{ $profile->email }}</p>
                     <p>Phone: {{ $profile->phone }}</p>
                     <p>Address: {{ $profile->address }}</p>
-                    <p>VIN: {{ $profile->vin }}</p>
                 </div>
             </div>
         </div>
@@ -87,10 +86,6 @@
                 <div class="form-group">
                     <label for="address">Address</label>
                     <input type="text" class="form-control" id="address" name="address" value="{{ $profile->address }}">
-                </div>
-                <div class="form-group">
-                    <label for="address">VIN</label>
-                    <input type="text" class="form-control" id="address" name="facebook" value="{{ $profile->vin }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Twitter</label>

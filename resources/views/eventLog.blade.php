@@ -37,58 +37,29 @@
 }
 </style>
 
-<div class="container-fluid">
-    <div class="row bg-purple text-white mb-3 align-items-center">
-        <div class="col-md-8 text-center">
-            <h2>Wolksvagen Passat b7</h2>
-        </div>
-        <div class="col-md-4 d-flex justify-content-end">
-            <img class="car-image" src="http://127.0.0.1:8000/images/wolksvagen.png" alt="Car Image">
-        </div>
-        <button class="btn btn-purple arrow-button" type="button" data-bs-toggle="collapse" data-bs-target="#carStats1" aria-expanded="false" aria-controls="carStats1">
-            <i class="fas fa-arrow-down"></i>
-        </button>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="collapse bg-grey p-3" id="carStats1">
-                <?php
-                    require_once '/xampp/htdocs/finalProject/finalProject/vendor/autoload.php';
-                    use Sunrise\Vin\Vin;
-                    try {
-                        $vin = new Vin('WVWZZZ3CZ8E195565');
-                    } catch (InvalidArgumentException $e) {
-                        // It isn't a valid VIN...
-                    }
-                    echo "WMI: " . $vin->getWmi() . "<br>";
-                    echo "VDS: " . $vin->getVds() . "<br>";
-                    echo "VIS: " . $vin->getVis() . "<br>";
-                    echo "Region: " . $vin->getRegion() . "<br>";
-                    echo "Country: " . $vin->getCountry() . "<br>";
-                    echo "Manufacturer: " . $vin->getManufacturer() . "<br>";
-                    echo "Model Year: " . implode(', ', $vin->getModelYear()) . "<br>";
-                ?>
+@foreach($cars as $car)
+    <div class="container-fluid">
+        <div class="row bg-purple text-white mb-3 align-items-center">
+            <div class="col-md-8 text-center">
+                <h2>{{ $car->name }}</h2>
             </div>
-        </div>
-    </div>
-    <div class="row bg-purple text-white mb-3 align-items-center">
-        <div class="col-md-8 text-center">
-            <h2>Opel Astra</h2>
-        </div>
-        <div class="col-md-4 d-flex justify-content-end">
-            <img class="car-image" src="http://127.0.0.1:8000/images/opel.png" alt="Car Image">
-        </div>
-        <button class="btn btn-purple arrow-button" type="button" data-bs-toggle="collapse" data-bs-target="#carStats2" aria-expanded="false" aria-controls="carStats2">
-            <i class="fas fa-arrow-down"></i>
-        </button>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="collapse bg-grey p-3" id="carStats2">
-                <h4>Статистика машины</h4>
+            <div class="col-md-4 d-flex justify-content-end">
+                <img class="car-image" src="{{ $car->photo }}" alt="Car Image">
             </div>
+            <button class="btn btn-purple arrow-button" type="button" data-bs-toggle="collapse" data-bs-target="#carStats{{ $loop->index }}" aria-expanded="false" aria-controls="carStats{{ $loop->index }}">
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+        <div class="collapse bg-grey p-3" id="carStats{{ $loop->index }}">
+            @if($car->vinInfo)
+                @foreach($car->vinInfo as $key => $value)
+                    <p>{{ $key }}: {{ $value }}</p>
+                @endforeach
+            @else
+                <p>Invalid VIN</p>
+            @endif
         </div>
     </div>
-</div>
+@endforeach
 
 @endsection

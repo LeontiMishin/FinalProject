@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById('signature');
 var context = canvas.getContext('2d');
 var drawing = false;
@@ -34,3 +35,25 @@ function renderCanvas() {
         lastPos = mousePos;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Document is ready');
+
+    var canvas = document.getElementById('signature');
+    if (!canvas) {
+        console.error('Canvas element not found!');
+        return;
+    }
+
+    var signaturePad = new SignaturePad(canvas);
+    var form = document.querySelector('form');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var signatureData = signaturePad.toDataURL('image/png');
+        console.log('Signature Data:', signatureData);
+
+        document.getElementById('hiddenSignatureInput').value = signatureData;
+        form.submit();
+    });
+});

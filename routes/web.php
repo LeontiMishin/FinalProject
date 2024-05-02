@@ -35,7 +35,10 @@ Route::get('/profile', [ProfileController::class,'index'
 
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
 ])->middleware('auth')->name('addParkimisluba.index');
-Route::post('/addParkimisluba', [AddParkimislubaController::class, 'store'])->name('signature');
+Route::post('/submit', [AddParkimislubaController::class, 'store'])->name('submit');
+
+
+
 Route::get('/main', 'App\Http\Controllers\WelcomeController@index');
 Route::get('/news/{id}', [WelcomeController::class, 'show']);
 

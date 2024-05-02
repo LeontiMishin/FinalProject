@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Statement extends Model
+class Cars extends Model
 {
-    public $timestamps = false;
     use HasFactory;
 
     /**
@@ -16,9 +15,9 @@ class Statement extends Model
      * @var array
      */
     protected $fillable = [
-        'fullName',
-        'regNumber',
-        'signature',
+        'name',
+        'photo',
+        'vin',
     ];
 
     /**
@@ -26,5 +25,5 @@ class Statement extends Model
      *
      * @var string
      */
-    protected $table = 'statement';
+    protected $table = 'cars';
 }

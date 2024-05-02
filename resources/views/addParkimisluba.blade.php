@@ -49,8 +49,8 @@
 
 
 
-<form action="/submit" method="post">
-            @csrf
+<form id="signatureForm" action="/submit" method="post">
+    @csrf
 
     <div class="top-section py-3 d-flex flex-column align-items-center justify-content-center">
         <h2 class="text-center">Parkimisloa taotlus</h2>
@@ -66,8 +66,9 @@
         </div>
 
         <div class="form-group">
-            <label for="signature"></label>
-            <canvas id="signature" width="500" height="200" style="border:2px solid black;" class="img-fluid"></canvas>
+            <label for="hiddenSignatureInput">Подпись:</label>
+            <canvas id="signature" width="500" height="200" style="border:2px solid black;"></canvas>
+            <input type="hidden" id="hiddenSignatureInput" name="signature">
         </div>
 
         <div class="d-flex align-items-center">
@@ -96,8 +97,67 @@
             </a>
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js" defer></script>
 
 
-    <script src="http://127.0.0.1:8000/JS/signature.js"></script>
+<script>
+    var canvas = document.getElementById('signature');
+    var context = canvas.getContext('2d');
+    var drawing = false;
+    var mousePos = { x:0, y:0 };
+    var lastPos = mousePos;
+
+    canvas.addEventListener('mousedown', function (e) {
+        drawing = true;
+        lastPos = getMousePos(canvas, e);
+    }, false);
+
+    canvas.addEventListener('mouseup', function () {
+        drawing = false;
+    }, false);
+
+    canvas.addEventListener('mousemove', function (e) {
+        mousePos = getMousePos(canvas, e);
+        renderCanvas();
+    }, false);
+
+    function getMousePos(canvasDom, mouseEvent) {
+        var rect = canvasDom.getBoundingClientRect();
+        return {
+            x: mouseEvent.clientX - rect.left,
+            y: mouseEvent.clientY - rect.top
+        };
+    }
+
+    function renderCanvas() {
+        if (drawing) {
+            context.moveTo(lastPos.x, lastPos.y);
+            context.lineTo(mousePos.x, mousePos.y);
+            context.stroke();
+            lastPos = mousePos;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    var canvas = document.getElementById('signature');
+    var signaturePad = new SignaturePad(canvas);
+    var form = document.getElementById('signatureForm');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var signatureData = signaturePad.toDataURL('image/png');
+        console.log('Signature Data:', signatureData);
+
+        document.getElementById('hiddenSignatureInput').value = signatureData;
+        console.log('Hidden input set', document.getElementById('hiddenSignatureInput').value);
+
+        form.submit(); 
+    });
+});
+
+
+
+</script>
+
 </body>
 @endsection
