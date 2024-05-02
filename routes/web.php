@@ -36,18 +36,17 @@ Route::get('/profile', [ProfileController::class,'index'
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'
 ])->middleware('auth')->name('addParkimisluba.index');
 Route::post('/addParkimisluba', [AddParkimislubaController::class, 'store'])->name('signature');
-
 Route::get('/main', 'App\Http\Controllers\WelcomeController@index');
-
 Route::get('/news/{id}', [WelcomeController::class, 'show']);
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
-
 Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
-
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
 
 Route::get('/adminPanel', [AdminPanelController::class, 'index'])->middleware('guest')->name('adminPanel');
 Route::get('/adminPanel/news', [AdminPanelNewsController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::get('/adminPanel/parkimisluba', [AdminPanelParkimislubaController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::get('/adminPanel/autod', [AdminPanelAutodController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::get('/adminPanel/users', [AdminPanelUsersController::class, 'index'])->middleware('guest')->name('adminPanelNews');

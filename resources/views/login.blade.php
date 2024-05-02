@@ -50,6 +50,7 @@
                             <button type="submit" class="btn btn-primary">Log In</button>
                             <div class="mb-3">
                                 <a class="" aria-current="page" href="/register">Register</a>
+                                <a class="" aria-current="page" href="/adminPanel">Admin Panel</a>
                             </div>
                         </form>
                     </div>

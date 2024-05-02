@@ -66,6 +66,10 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="mb-3">
+                            <a class="" aria-current="page" href="/adminPanel/news">Main</a>
+                        </div>
                     </form>
                 </div>
             </div>

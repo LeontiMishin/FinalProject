@@ -67,9 +67,12 @@
                     <a class="nav-link h2 text-white" href="/eventLog">Auto</a>
                 </li>
             </ul>
-            <a class="profile" href="/profile">
-                <img src="http://127.0.0.1:8000/images/profile.png" class="rounded float-left logo2" alt="logo" width="105" height="100">
-            </a>
+
+                <a class="nav-link h4" href="/profile">Leonti Mishin</a>
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 85px;">Log Out</a>
+                    </form>
         </div>
     </nav>
   </head>

@@ -35,11 +35,7 @@
   <body>
   <div class="content">
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                @foreach($news as $new)
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->name}}</h6>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->article}}</a><br>
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->created_at}}</h6>
-                @endforeach
+
     </main>
   </div>
   </body>

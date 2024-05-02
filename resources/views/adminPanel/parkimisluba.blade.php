@@ -35,11 +35,14 @@
   <body>
   <div class="content">
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                @foreach($news as $new)
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->name}}</h6>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->article}}</a><br>
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->created_at}}</h6>
-                @endforeach
+    @foreach($tickets as $new)
+                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->user_account}}</h6>
+                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->title}}</h6>
+                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->number}}</h6>
+                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->carPlate}}</h6>
+                    <h6 href="#" data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->fullName}}</h6>
+                    <a data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->date}}</a><br>
+    @endforeach
     </main>
   </div>
   </body>
