@@ -68,7 +68,7 @@
                 </li>
             </ul>
 
-                <a class="nav-link h4" href="/profile">Leonti Mishin</a>
+                <a class="nav-link h4" href="/profile">{{ $profile->full_name }}</a>
                     <form method="post" action="{{ route('logout') }}">
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger" style="width: 85px;">Log Out</a>

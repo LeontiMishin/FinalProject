@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\News;
 use App\Models\Places;
+use App\Models\Profile;
 
 class WelcomeController extends Controller
 {
@@ -13,8 +14,9 @@ class WelcomeController extends Controller
     {
         $news = News::orderBy('created_at', 'desc')->take(4)->get();
         $places = Places::find(1);
+        $profile = Profile::find(1);
 
-        return view('welcome', compact('news', 'places'));
+        return view('welcome', compact('news', 'places','profile'));
     }
 
     public function show($id)

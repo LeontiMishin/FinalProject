@@ -50,6 +50,9 @@ Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')-
 
 Route::get('/adminPanel', [AdminPanelController::class, 'index'])->middleware('guest')->name('adminPanel');
 Route::get('/adminPanel/news', [AdminPanelNewsController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::delete('/adminPanel/news/{id}', [AdminPanelNewsController::class, 'destroy']);
+Route::post('/adminPanel/news/add', [AdminPanelNewsController::class, 'store']);
+
 Route::get('/adminPanel/parkimisluba', [AdminPanelParkimislubaController::class, 'index'])->middleware('guest')->name('adminPanelNews');
 Route::get('/adminPanel/autod', [AdminPanelAutodController::class, 'index'])->middleware('guest')->name('adminPanelNews');
 Route::get('/adminPanel/users', [AdminPanelUsersController::class, 'index'])->middleware('guest')->name('adminPanelNews');

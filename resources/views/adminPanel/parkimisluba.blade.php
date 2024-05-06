@@ -1,61 +1,121 @@
 <!doctype html>
 <html lang="ee">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
-
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/adminPanel/news">Новости</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/parkimisluba">Парковочные талоны</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/autod">Машины-User</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/users">Список пользователей</a>
-        </li>
-      </ul>
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 3rem;
+            line-height: 3rem;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/adminPanel/news">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminPanel/parkimisluba">Парковочные талоны</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminPanel/autod">Машины-User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminPanel/users">Список пользователей</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
-  <body>
-  <div class="content">
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-    @foreach($tickets as $new)
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->user_account}}</h6>
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->title}}</h6>
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->number}}</h6>
-                    <h6 data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->carPlate}}</h6>
-                    <h6 href="#" data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->fullName}}</h6>
-                    <a data-bs-toggle="modal" data-bs-target="#newsModal" class="">{{$new->date}}</a><br>
-    @endforeach
-    </main>
-  </div>
-  </body>
-  <footer class="footer">
-    <p>© SPTV20 Leonti Mishin </p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  <script>
-    window.onload = function() {
-        var headerHeight = document.querySelector('nav').offsetHeight;
-        var footerHeight = document.querySelector('footer').offsetHeight;
-        var content = document.querySelector('.content');
-        content.style.minHeight = 'calc(100vh - ' + (headerHeight + footerHeight) + 'px)';
-    };
-  </script>
+<div class="container mt-4">
+    <h3>Парковочные талоны</h3>
+    <div class="alert alert-info" role="alert">
+        <h3>{{ $profile->full_name }}, Email: {{ $profile->email }}</h3>
+
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach($tickets as $ticket)
+        <div class="col mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{$ticket->title}}</h5>
+                    <p class="card-text">
+                        <strong>Номер:</strong> {{$ticket->number}}<br>
+                        <strong>Номер машины:</strong> {{$ticket->carPlate}}<br>
+                        <strong>Полное имя:</strong> {{$ticket->fullName}}<br>
+                        <strong>Дата:</strong> {{$ticket->date}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <h3>Bob Methew, Email: bob@gmail.com</h3>
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach($tickets as $ticket)
+        <div class="col mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{$ticket->title}}</h5>
+                    <p class="card-text">
+                        <strong>Номер:</strong> {{$ticket->number}}<br>
+                        <strong>Номер машины:</strong> {{$ticket->carPlate}}<br>
+                        <strong>Полное имя:</strong> {{$ticket->fullName}}<br>
+                        <strong>Дата:</strong> {{$ticket->date}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+
+
+
+
+    <h3>Заявки</h3>
+    <div class="alert alert-secondary" role="alert">
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach($statements as $statement)
+        <div class="col mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{$statement->fullName}}</h5>
+                    <p class="card-text">
+                        <strong>Регистрационный номер:</strong> {{$statement->regNumber}}<br>
+                    </p>
+                    <img src="{{$statement->signature}}" alt="Подпись" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>© SPTV20 Leonti Mishin </p>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

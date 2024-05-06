@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Statement;
 use Illuminate\Support\Facades\Log;
+use App\Models\Profile;
 
 class AddParkimislubaController extends Controller
 {
     public function index()
     {
-        return view('addParkimisluba');
+        $profile = Profile::find(1);
+        return view('addParkimisluba', compact('profile'));
     }
 
     public function store(Request $request)

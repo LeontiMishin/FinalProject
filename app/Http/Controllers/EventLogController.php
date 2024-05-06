@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cars;
 use Sunrise\Vin\Vin;
+use App\Models\Profile;
 
 class EventLogController extends Controller
 {
     public function index()
     {
+        $profile = Profile::find(1);
         $cars = Cars::all();
 
         foreach ($cars as $car) {
@@ -30,6 +32,6 @@ class EventLogController extends Controller
             }
         }
 
-        return view('eventLog', compact('cars'));
+        return view('eventLog', compact('cars', 'profile'));
     }
 }

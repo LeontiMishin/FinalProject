@@ -18,7 +18,11 @@ class News extends Model
         'id',
         'name',
         'article',
+        'created_at',
     ];
+    public $timestamps = false;
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = null;
 
     /**
      * The table associated with the model.
