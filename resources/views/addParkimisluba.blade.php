@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            <label for="hiddenSignatureInput">Подпись:</label>
+            <label for="hiddenSignatureInput"></label>
             <canvas id="signature" width="500" height="200" style="border:2px solid black;"></canvas>
             <input type="hidden" id="hiddenSignatureInput" name="signature">
         </div>
@@ -83,11 +83,12 @@
         <div class="form-group mr-3">
             <select class="form-select" id="carNumbers">
                 <option selected>Vali auto number...</option>
-                <option value="1">078 BFP</option>
-                <option value="2">290 TKD</option>
+                @foreach($tickets as $new)
+                    <option value="{{$new->id}}">{{$new->carPlate}}</option>
+                @endforeach
             </select>
+            <button class="btn btn-danger mr-3" onclick="deleteTicket()">Kustutada</button>
         </div>
-        <button class="btn btn-danger mr-3">Kustutada</button>
         <div class="d-flex flex-wrap">
             <a href="https://www.transpordiamet.ee/">
                 <img style="width: 60%; height: auto;" src="http://127.0.0.1:8000/images/Transpordiamet.png" alt="Transpordiamet">
@@ -101,6 +102,33 @@
 
 
 <script>
+    function deleteTicket() {
+        var selectedId = document.getElementById('carNumbers').value;
+        if (!selectedId) {
+            alert('Palun valige auto number');
+            return;
+        }
+        if (confirm('Kas olete kindel, et soovite selle numbri kustutada?')) {
+            fetch(`/delete-ticket/${selectedId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            }).then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    alert('Number on kustutatud!');
+                    window.location.reload();
+                } else {
+                    alert('Viga numbra kustutamisel');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
     var canvas = document.getElementById('signature');
     var context = canvas.getContext('2d');
     var drawing = false;
@@ -151,7 +179,7 @@
         document.getElementById('hiddenSignatureInput').value = signatureData;
         console.log('Hidden input set', document.getElementById('hiddenSignatureInput').value);
 
-        form.submit(); 
+        form.submit();
     });
 });
 

@@ -13,10 +13,23 @@
     .card {
       background-color: rgba(255, 255, 255, 0.8);
     }
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+    }
     </style>
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Nutikas Parkimine</a>
+            <div class="d-flex">
+                <a class="btn btn-outline-success" href="/">Login</a>
+                <a class="btn btn-outline-secondary" href="/adminPanel">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="row min-vh-100 justify-content-center align-items-center">
             <div class="col-md-6">
@@ -47,13 +60,9 @@
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Sign Up</button>
-                            <div class="mb-3">
-                                <a class="" aria-current="page" href="/">login</a>
-                            </div>
                         </form>
                     </div>
                 </div>
-            <p>© SPTV20 Leonti Mishin 2024 </p>
             </div>
         </div>
     </div>

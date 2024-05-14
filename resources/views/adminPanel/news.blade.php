@@ -106,7 +106,7 @@
                     <form action="/adminPanel/news/{{$new->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-delete"><i class="fas fa-trash-alt"></i>Удалить</button>
+                        <button type="submit" class="btn btn-danger btn-delete"><i class="fas"></i>Удалить</button>
                     </form>
                 </div>
                 @endforeach

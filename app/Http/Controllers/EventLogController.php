@@ -34,4 +34,30 @@ class EventLogController extends Controller
 
         return view('eventLog', compact('cars', 'profile'));
     }
+
+    public function addCar(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'vin' => 'required|string|max:255|unique:cars,vin', // Проверяем уникальность VIN
+            'photo' => 'nullable|string|max:255'
+        ]);
+
+        $car = new Cars();
+        $car->name = $request->name;
+        $car->vin = $request->vin;
+        $car->photo = $request->photo;
+        $car->save();
+
+        return redirect()->route('eventLog.index')->with('success', 'Машина добавлена успешно.');
+    }
+
+    public function delete($id)
+{
+    $car = Cars::findOrFail($id);
+    $car->delete();
+    return redirect()->route('eventLog.index')->with('success', 'Машина удалена успешно');
+}
+
+
 }

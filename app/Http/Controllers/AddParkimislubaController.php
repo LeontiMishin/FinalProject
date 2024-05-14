@@ -7,13 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Statement;
 use Illuminate\Support\Facades\Log;
 use App\Models\Profile;
+use App\Models\Tickets;
 
 class AddParkimislubaController extends Controller
 {
     public function index()
     {
         $profile = Profile::find(1);
-        return view('addParkimisluba', compact('profile'));
+        $tickets = Tickets::all();
+        return view('addParkimisluba', compact('tickets','profile'));
     }
 
     public function store(Request $request)
@@ -46,4 +48,15 @@ class AddParkimislubaController extends Controller
             return redirect()->back()->with('error', 'Ошибка при сохранении: ' . $e->getMessage());
         }
     }
+    public function destroy($id)
+    {
+        try {
+            $ticket = Tickets::findOrFail($id);
+            $ticket->delete();
+            return response()->json(['success' => true, 'message' => 'Number kustutatud']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Viga numbra kustutamisel: ' . $e->getMessage()], 500);
+        }
+    }
+
 }

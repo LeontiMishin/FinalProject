@@ -7,6 +7,15 @@
     <title>Вход в админ панель</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Nutikas Parkimine</a>
+            <div class="d-flex">
+                <a class="btn btn-outline-success" href="/">Login</a>
+            </div>
+        </div>
+    </nav>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -66,7 +75,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <a class="" aria-current="page" href="/adminPanel/news">Main</a>
                         </div>

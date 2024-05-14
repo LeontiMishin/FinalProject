@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <form action="/profile" method="post" class="form-part">
+        <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data" class="form-part">
                 @csrf
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
@@ -101,19 +101,10 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
-
-                    <div class="container mt-5">
-                        <form action="/upload_image.php" method="post" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="fileToUpload" class="form-label">Выберите изображение для загрузки:</label>
-                                <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
-                            </div>
-                        <button type="submit" class="btn btn-primary" name="submit">Загрузить изображение</button>
-                        </form>
-                    </div>
-
-
+            <div class="mb-4">
+                <label for="profileImage" class="form-label">Фотография профиля:</label>
+                <input type="file" class="form-control" name="profileImage" id="profileImage">
+            </div>
                 <div class="form-group button">
                     <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
                 </div>

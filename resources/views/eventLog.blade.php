@@ -62,4 +62,56 @@
     </div>
 @endforeach
 
+<div class="container-fluid my-4">
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
+            Добавить новую машину
+        </button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Удалить машину
+            </button>
+            <ul class="dropdown-menu">
+                @foreach($cars as $car)
+                    <li>
+                        <form action="{{ route('cars.delete', ['id' => $car->id]) }}" method="post">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="dropdown-item">{{ $car->name }}</button>
+                        </form>
+                    </li>
+                @endforeach
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для добавления новой машины -->
+<div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCarModalLabel">Добавление новой машины</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addCarForm" action="{{ route('cars.add') }}" method="post">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="carName" class="form-label">Название машины</label>
+                        <input type="text" class="form-control" id="carName" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="carVin" class="form-label">VIN</label>
+                        <input type="text" class="form-control" id="carVin" name="vin" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить машину</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @endsection

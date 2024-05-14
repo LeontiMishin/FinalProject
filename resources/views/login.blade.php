@@ -6,6 +6,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Registration</title>
     <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    @media (max-width: 576px) {
+    .card {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .container{
+        padding: 5px;
+    }
+
+    .row {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .card {
+        overflow: hidden;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+}
     body {
       background: url('http://127.0.0.1:8000/images/car.jpg') center center/cover no-repeat fixed;
     }
@@ -13,10 +44,25 @@
     .card {
       background-color: rgba(255, 255, 255, 0.8);
     }
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+    }
     </style>
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Nutikas Parkimine</a>
+            <div class="d-flex">
+                <a class="btn btn-outline-success" href="/register">Register</a>
+                <a class="btn btn-outline-secondary" href="/adminPanel">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="container">
         <div class="row min-vh-100 justify-content-center align-items-center">
             <div class="col-md-6">
@@ -45,21 +91,12 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-primary">Log In</button>
-                            <div class="mb-3">
-                                <a class="" aria-current="page" href="/register">Register</a>
-                                <a class="" aria-current="page" href="/adminPanel">Admin Panel</a>
-                            </div>
                         </form>
                     </div>
                 </div>
-            <p>© SPTV20 Leonti Mishin 2024 </p>
             </div>
         </div>
     </div>
 </body>
-
-<footer class="container text-center">
-    <p>© SPTV20 Leonti Mishin 2024 </p>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </html>

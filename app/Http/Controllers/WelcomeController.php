@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\News;
 use App\Models\Places;
 use App\Models\Profile;
+use App\Models\Photo;
+
 
 class WelcomeController extends Controller
 {
