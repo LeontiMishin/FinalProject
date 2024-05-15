@@ -24,35 +24,42 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/adminPanel/news">Новости</a>
+            <a class="nav-link" aria-current="page" href="/adminPanel/news">Uudised</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/parkimisluba">Парковочные талоны</a>
+            <a class="nav-link" href="/adminPanel/parkimisluba">Parkimisload</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/autod">Машины-User</a>
+            <a class="nav-link" href="/adminPanel/autod">Autod-User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/adminPanel/users">Список пользователей</a>
+            <a class="nav-link" href="/adminPanel/users">Kasutajate loend</a>
         </li>
       </ul>
+      <div class="right-side">
+            <div class="profile-section">
+                <form>
+                    <a href="/" type="submit" class="btn btn-danger logout-btn" style="width: 85px;">Log Out</a>
+                </form>
+            </div>
+        </div>
     </div>
   </div>
 </nav>
 
 <div class="container mt-4">
-    <h3>Пользователи</h3>
+    <h3>Kasutajad</h3>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Имя</th>
+                    <th scope="col">Nimi</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Дата создания</th>
-                    <th scope="col">Дата обновления</th>
+                    <th scope="col">Loomise kuupäev</th>
+                    <th scope="col">Värskendamise kuupäev</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -64,7 +71,7 @@
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Удалить</button>
+                        <button type="button" class="btn btn-danger">Kustutada</button>
                     </td>
                 </tr>
                 @endforeach

@@ -55,21 +55,23 @@
                 @foreach($car->vinInfo as $key => $value)
                     <p>{{ $key }}: {{ $value }}</p>
                 @endforeach
+                <canvas id="carUsageChart{{ $loop->index }}" width="400" height="400"></canvas>
             @else
                 <p>Invalid VIN</p>
             @endif
         </div>
+
     </div>
 @endforeach
 
 <div class="container-fluid my-4">
     <div class="text-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
-            Добавить новую машину
+            Lisa uus auto
         </button>
         <div class="btn-group">
             <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Удалить машину
+                Auto eemaldada
             </button>
             <ul class="dropdown-menu">
                 @foreach($cars as $car)
@@ -87,26 +89,29 @@
     </div>
 </div>
 
-<!-- Модальное окно для добавления новой машины -->
 <div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addCarModalLabel">Добавление новой машины</h5>
+                <h5 class="modal-title" id="addCarModalLabel">Uus auto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addCarForm" action="{{ route('cars.add') }}" method="post">
+                <form action="{{ route('cars.add') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="carName" class="form-label">Название машины</label>
+                        <label for="carName" class="form-label">Auto nimi</label>
                         <input type="text" class="form-control" id="carName" name="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="carVin" class="form-label">VIN</label>
                         <input type="text" class="form-control" id="carVin" name="vin" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Добавить машину</button>
+                    <div class="mb-3">
+                        <label for="carPhoto" class="form-label">Foto (URL)</label>
+                        <input type="text" class="form-control" id="carPhoto" name="photo">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lisa auto</button>
                 </form>
             </div>
         </div>

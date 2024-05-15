@@ -59,21 +59,28 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/adminPanel/news">Новости</a>
+                        <a class="nav-link" aria-current="page" href="/adminPanel/news">Uudised</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/parkimisluba">Парковочные талоны</a>
+                        <a class="nav-link" href="/adminPanel/parkimisluba">Parkimisload</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/autod">Машины-User</a>
+                        <a class="nav-link" href="/adminPanel/autod">Autod-User</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adminPanel/users">Список пользователей</a>
+                        <a class="nav-link" href="/adminPanel/users">Kasutajate loend</a>
                     </li>
                 </ul>
+                <div class="right-side">
+                    <div class="profile-section">
+                        <form>
+                            <a href="/" type="submit" class="btn btn-danger logout-btn" style="width: 85px;">Log Out</a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -81,19 +88,19 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-md-12">
-                <div class="news-header">Добавление новостей</div>
+                <div class="news-header">Uudiste lisamine</div>
                 <div class="form-container">
                     <form action="/adminPanel/news/add" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="newsTitle" class="form-label">Заголовок</label>
+                            <label for="newsTitle" class="form-label">Pealkiri</label>
                             <input type="text" class="form-control" id="newsTitle" name="newsTitle">
                         </div>
                         <div class="mb-3">
-                            <label for="newsArticle" class="form-label">Статья</label>
+                            <label for="newsArticle" class="form-label">Artikkel</label>
                             <textarea class="form-control" id="newsArticle" name="newsArticle" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary mb-3">Добавить</button>
+                        <button type="submit" class="btn btn-primary mb-3">Lisa</button>
                     </form>
                 </div>
                 @foreach($news as $new)
@@ -106,7 +113,7 @@
                     <form action="/adminPanel/news/{{$new->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-delete"><i class="fas"></i>Удалить</button>
+                        <button type="submit" class="btn btn-danger btn-delete"><i class="fas"></i>Kustutada</button>
                     </form>
                 </div>
                 @endforeach

@@ -23,27 +23,34 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/adminPanel/news">Новости</a>
+                    <a class="nav-link" aria-current="page" href="/adminPanel/news">Uudised</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adminPanel/parkimisluba">Парковочные талоны</a>
+                    <a class="nav-link" href="/adminPanel/parkimisluba">Parkimisload</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adminPanel/autod">Машины-User</a>
+                    <a class="nav-link" href="/adminPanel/autod">Autod-User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adminPanel/users">Список пользователей</a>
+                    <a class="nav-link" href="/adminPanel/users">Kasutajate loend</a>
                 </li>
             </ul>
+            <div class="right-side">
+                <div class="profile-section">
+                    <form>
+                        <a href="/" type="submit" class="btn btn-danger logout-btn" style="width: 85px;">Log Out</a>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
 
 <div class="container mt-4">
-    <h3>Парковочные талоны</h3>
+    <h3>Parkimisload</h3>
     <div class="alert alert-info" role="alert">
         <h3>{{ $profile->full_name }}, Email: {{ $profile->email }}</h3>
 
@@ -54,10 +61,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$ticket->title}}</h5>
                     <p class="card-text">
-                        <strong>Номер:</strong> {{$ticket->number}}<br>
-                        <strong>Номер машины:</strong> {{$ticket->carPlate}}<br>
-                        <strong>Полное имя:</strong> {{$ticket->fullName}}<br>
-                        <strong>Дата:</strong> {{$ticket->date}}
+                        <strong>Nr.:</strong> {{$ticket->number}}<br>
+                        <strong>Auto number:</strong> {{$ticket->carPlate}}<br>
+                        <strong>Täisnimi:</strong> {{$ticket->fullName}}<br>
+                        <strong>Kuupäev:</strong> {{$ticket->date}}
                     </p>
                 </div>
             </div>
@@ -67,21 +74,19 @@
 
     <h3>Bob Methew, Email: bob@gmail.com</h3>
     <div class="row row-cols-1 row-cols-md-3">
-        @foreach($tickets as $ticket)
         <div class="col mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{$ticket->title}}</h5>
+                    <h5 class="card-title">Parkimisluba</h5>
                     <p class="card-text">
-                        <strong>Номер:</strong> {{$ticket->number}}<br>
-                        <strong>Номер машины:</strong> {{$ticket->carPlate}}<br>
-                        <strong>Полное имя:</strong> {{$ticket->fullName}}<br>
-                        <strong>Дата:</strong> {{$ticket->date}}
+                        <strong>Nr.:</strong> 13432<br>
+                        <strong>Auto number:</strong> 564BTJ<br>
+                        <strong>Täisnimi:</strong> Bob Methew<br>
+                        <strong>Kuupäev:</strong> 2025-04-12
                     </p>
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
 </div>
 
@@ -89,7 +94,7 @@
 
 
 
-    <h3>Заявки</h3>
+    <h3>Avaldused</h3>
     <div class="alert alert-secondary" role="alert">
     <div class="row row-cols-1 row-cols-md-3">
         @foreach($statements as $statement)
@@ -98,7 +103,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$statement->fullName}}</h5>
                     <p class="card-text">
-                        <strong>Регистрационный номер:</strong> {{$statement->regNumber}}<br>
+                        <strong>Auto number:</strong> {{$statement->regNumber}}<br>
                     </p>
                     <img src="{{$statement->signature}}" alt="Подпись" class="img-fluid">
                 </div>

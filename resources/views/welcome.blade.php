@@ -214,8 +214,8 @@ $(document).ready(function() {
     $('.news-link').click(function(e) {
         e.preventDefault();
         var id = $(this).data('id');
-        $('#newsModalLabel').text("Загрузка...");
-        $('.modal-body').text("Пожалуйста, подождите...");
+        $('#newsModalLabel').text("Loading...");
+        $('.modal-body').text("Palun oota...");
         $('#newsModal').modal('show');
 
         $.ajax({
@@ -226,8 +226,8 @@ $(document).ready(function() {
                 $('.modal-body').text(data.article);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                $('#newsModalLabel').text("Ошибка");
-                $('.modal-body').text("Не удалось загрузить данные.");
+                $('#newsModalLabel').text("Error");
+                $('.modal-body').text("Laadimine ebaõnnestus.");
                 console.error('Error:', errorThrown);
             }
         });

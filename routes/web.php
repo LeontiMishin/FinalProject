@@ -36,7 +36,7 @@ Route::post('/cars/delete/{id}', [EventLogController::class, 'delete'])->name('c
 
 Route::get('/profile', [ProfileController::class,'index'
 ])->middleware('auth')->name('profile.index');
-Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 
 Route::get('/addParkimisluba', [AddParkimislubaController::class,'index'

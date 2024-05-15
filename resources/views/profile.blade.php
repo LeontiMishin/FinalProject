@@ -73,7 +73,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" value="{{ $profile->full_name }}">
+                    <input type="text" class="form-control" id="fullname" name="full_name" value="{{ $profile->full_name }}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -99,15 +99,17 @@
                     <label for="address">Facebook</label>
                     <input type="text" class="form-control" id="address" name="facebook" value="{{ $profile->facebook }}">
                 </div>
+                <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
             </div>
-
-            <div class="mb-4">
-                <label for="profileImage" class="form-label">Фотография профиля:</label>
-                <input type="file" class="form-control" name="profileImage" id="profileImage">
-            </div>
-                <div class="form-group button">
-                    <button type="submit" class="btn btn-primary" style="width: 210px;">Save</button>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
+            @endif
             </form>
         </div>
     </div>
