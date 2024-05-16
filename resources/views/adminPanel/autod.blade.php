@@ -102,7 +102,6 @@
 <div class="container mt-4">
     <h3>Bob Methew</h3>
     <div class="row">
-        @foreach($cars as $car)
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -119,7 +118,6 @@
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
 </div>
 

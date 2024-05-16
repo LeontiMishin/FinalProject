@@ -62,5 +62,9 @@ Route::delete('/adminPanel/news/{id}', [AdminPanelNewsController::class, 'destro
 Route::post('/adminPanel/news/add', [AdminPanelNewsController::class, 'store']);
 
 Route::get('/adminPanel/parkimisluba', [AdminPanelParkimislubaController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::post('/submit1', [AdminPanelParkimislubaController::class, 'store'])->name('submit1');
+
 Route::get('/adminPanel/autod', [AdminPanelAutodController::class, 'index'])->middleware('guest')->name('adminPanelNews');
 Route::get('/adminPanel/users', [AdminPanelUsersController::class, 'index'])->middleware('guest')->name('adminPanelNews');
+Route::delete('/delete-user/{id}', [AdminPanelUsersController::class, 'destroy']);
+

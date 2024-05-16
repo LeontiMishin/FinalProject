@@ -15,6 +15,14 @@
             background-color: #f5f5f5;
             text-align: center;
         }
+        input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+    }
     </style>
 </head>
 <body>
@@ -98,14 +106,21 @@
     <div class="alert alert-secondary" role="alert">
     <div class="row row-cols-1 row-cols-md-3">
         @foreach($statements as $statement)
-        <div class="col mb-4">
+        <div class="col mb-4" id="card_{{ $statement->id }}">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{$statement->fullName}}</h5>
+                    <h5 class="card-title">{{ $statement->fullName }}</h5>
                     <p class="card-text">
-                        <strong>Auto number:</strong> {{$statement->regNumber}}<br>
+                        <strong>Auto number:</strong> {{ $statement->regNumber }}<br>
                     </p>
-                    <img src="{{$statement->signature}}" alt="Подпись" class="img-fluid">
+                    <img src="{{ $statement->signature }}" alt="Подпись" class="img-fluid">
+                </div>
+                <div>
+                    <strong>Title:</strong> <input id="title_{{ $statement->id }}" type="text" class="form-control" placeholder="Parkimisluba"><br>
+                    <strong>Number:</strong> <input id="number_{{ $statement->id }}" type="text" class="form-control" placeholder="135467"><br>
+                    <strong>Date:</strong> <input id="date_{{ $statement->id }}" type="date" class="form-control" placeholder="Date"><br>
+                    <strong>Color:</strong> <input id="color_{{ $statement->id }}" type="text" class="form-control" placeholder="color1, color2(külaline)"><br>
+                    <button onclick="submitTicket({ $ticket:id })" class="btn btn-primary">Отправить</button>
                 </div>
             </div>
         </div>
@@ -122,5 +137,31 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function submitTicket(statementId) {
+        var formData = {
+            fullname: $('#fullname_' + statementId).val(),
+            regNumber: $('#regNumber_' + statementId).val(),
+            title: $('#title_' + statementId).val(),
+            number: $('#number_' + statementId).val(),
+            date: $('#date_' + statementId).val(),
+            color: $('#color_' + statementId).val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/submit1',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                console.log('Данные успешно отправлены на сервер');
+                $('#card_' + statementId).remove();
+            },
+            error: function(error) {
+                console.error('Ошибка при отправке данных на сервер:', error);
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -88,7 +88,7 @@
             </ul>
             <div class="right-side">
                 <div class="profile-section">
-                    <a class="nav-link h5 full-name" href="/profile">{{ $profile->full_name }}</a>
+                    <a class="nav-link h5 full-name" href="/profile">{{ Auth::user()->name }}</a>
                     <form method="post" action="{{ route('logout') }}">
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="btn btn-danger logout-btn" style="width: 85px;">Log Out</a>

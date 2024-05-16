@@ -18,4 +18,19 @@ class AdminPanelParkimislubaController extends Controller
 
         return view('adminPanel/parkimisluba', compact('tickets', 'statements', 'profile'));
     }
+    public function store(Request $request)
+    {
+        $ticket = new Tickets;
+        $ticket->fullname = $request->fullname;
+        $ticket->regNumber = $request->regNumber;
+        $ticket->title = $request->title;
+        $ticket->number = $request->number;
+        $ticket->date = $request->date;
+        $ticket->color = $request->color;
+        $ticket->save();
+
+        Statement::destroy($request->statement_id);
+
+        return response()->json(['success' => true]);
+    }
 }

@@ -39,7 +39,7 @@ class EventLogController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'vin' => 'required|string|max:255|unique:cars,vin', // Проверяем уникальность VIN
+            'vin' => 'required|string|max:255|unique:cars,vin',
             'photo' => 'nullable|string|max:255'
         ]);
 

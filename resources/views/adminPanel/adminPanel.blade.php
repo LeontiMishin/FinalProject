@@ -106,7 +106,7 @@
                         <a class="btn btn-primary" aria-current="page" href="/adminPanel/news">Login</a>
                         @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
-                                Забыли пароль?
+                                Unustasid?
                             </a>
                         @endif
                     </form>
@@ -123,7 +123,6 @@
 
   var forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {

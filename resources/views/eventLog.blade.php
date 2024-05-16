@@ -51,18 +51,56 @@
             </button>
         </div>
         <div class="collapse bg-grey p-3" id="carStats{{ $loop->index }}">
-            @if($car->vinInfo)
-                @foreach($car->vinInfo as $key => $value)
-                    <p>{{ $key }}: {{ $value }}</p>
-                @endforeach
-                <canvas id="carUsageChart{{ $loop->index }}" width="400" height="400"></canvas>
-            @else
-                <p>Invalid VIN</p>
-            @endif
+            <div class="row">
+                <div class="col-md-4">
+                    @if($car->vinInfo)
+                        @foreach($car->vinInfo as $key => $value)
+                            <p>{{ $key }}: {{ $value }}</p>
+                        @endforeach
+                    @else
+                        <p>Invalid VIN</p>
+                    @endif
+                </div>
+                <div class="col-md-8">
+                    <canvas id="carUsageChart{{ $loop->index }}" width="800" height="400"></canvas>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var ctx = document.getElementById('carUsageChart{{ $loop->index }}').getContext('2d');
+                            var carUsageChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                    datasets: [{
+                                        label: 'Number of Entries',
+                                        data: [12, 19, 3, 5, 2, 3, 9],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
         </div>
-
     </div>
 @endforeach
+
+
 
 <div class="container-fluid my-4">
     <div class="text-center">

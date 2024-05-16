@@ -3,7 +3,7 @@
 <title>TarkTee</title>
 
 <div class="card mb-2" style="height: 75vh; display: flex; flex-direction: column;">
-    <iframe src="https://tarktee.ee/#/en/link/NiM3PL8eqlUX" style="width: 100%; height: 100%;" frameborder="0" id="canvas"></iframe>
+    <img src="http://127.0.0.1:8000/images/new34.png" style="width: 100%; height: 100%;" frameborder="0" id="canvas"></img>
     <div class="card-body" style="padding-top: 10px;">
         <div class="row">
             <div class="col-sm-3">

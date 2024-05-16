@@ -15,4 +15,15 @@ class AdminPanelUsersController extends Controller
 
         return view('adminPanel/users', compact('users'));
     }
+    public function destroy($id)
+{
+    $user = User::find($id);
+
+    if ($user) {
+        $user->delete();
+        return response()->json(['success' => true]);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Kasutajat ei leitud.']);
+    }
+}
 }

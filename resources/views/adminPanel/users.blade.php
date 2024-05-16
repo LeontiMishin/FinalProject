@@ -71,7 +71,7 @@
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Kustutada</button>
+                        <button type="button" class="btn btn-danger delete-user" data-user-id="{{ $user->id }}">Kustutada</button>
                     </td>
                 </tr>
                 @endforeach
@@ -88,5 +88,30 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.delete-user').click(function() {
+            var userId = $(this).data('user-id');
+            if (confirm('Kas olete kindel, et soovite kustutada selle kasutaja?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/delete-user/' + userId,
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        _method: 'DELETE'
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                    error: function(data) {
+                        console.log(data);
+                        alert('Viga kustutamisel. Palun proovige uuesti.');
+                    }
+                });
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
